@@ -4,9 +4,7 @@ CREATE database employeeDB
 
 USE employeeDB
 
-CREATE TABLE department
-
-(
+CREATE TABLE department (
 
     id INT NOT NULL AUTO_INCREMENT, 
 
