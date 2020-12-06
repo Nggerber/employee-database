@@ -34,12 +34,35 @@ function userPrompt() {
             "View Departments",
             "View Roles",
             "Add Employees",
-            " Updater your Employees",
-            "Add a new Role",
-            "Leave"
-        ]
+            "Update your Employees",
+            "Add a New Role",
+            "Leave",
+        ],
+
+    }).then(function ({ userChoice }) {
+
+        if (userChoice === "View Employees") {
+            
+        }
+        else if (userChoice === "View Departments") {
+
+        }
+        else if (userChoice === "View Roles") {
+
+        }
+        else if (userChoice === "Add Employees") {
+
+        }
+        else if (userChoice === "Update your Employees") {
+
+        }
+        else if (userChoice === "Add a New Role") {
+
+        }
+        else {
+            connection.end();
+        }
+
     })
-
-
-
 }
+
