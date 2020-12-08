@@ -3,30 +3,30 @@ const inquirer = require("inquirer")
 
 
 var connection = mysql.createConnection({
-host: "localhost",
+    host: "localhost",
 
-port: 3306,
+    port: 3306,
 
-user: "root",
+    user: "root",
 
-password: "Scarface5.14a",
+    password: "Scarface5.14a",
 
-database: "employeeDB"
+    database: "employeeDB"
 
 })
 
 
-connection.connect(function(err) {
-if (err) throw err;
-console.log("connected as id " + connection.threadId)
-userPrompt();
+connection.connect(function (err) {
+    if (err) throw err;
+    console.log("connected as id " + connection.threadId)
+    userPrompt();
 });
 
 function userPrompt() {
 
     console.log("prompt working")
 
-    inquirer.prompt ({
+    inquirer.prompt({
         type: "list",
         name: "userChoice",
         message: "What would you like to do?",
@@ -46,10 +46,10 @@ function userPrompt() {
             viewEmployees();
         }
         else if (userChoice === "View Departments") {
-
+            viewDepartments();
         }
         else if (userChoice === "View Roles") {
-
+            viewRoles();
         }
         else if (userChoice === "Add Employees") {
 
@@ -68,13 +68,32 @@ function userPrompt() {
 }
 
 function viewEmployees() {
-connection.query("SELECT e.id, e.first_name, r.title, d.dep_name, r.salary, CONCAT (m.first_name, m.last_name) AS manager FROM employee e LEFT Join role r ON e.role_id = r.id LEFT JOIN department d ON d.id = r.department_id LEFT JOIN employee m ON m.id = e.manager_id", function(err, res){
-if (err) throw err;
 
-console.table(res)
+    connection.query("SELECT e.id, e.first_name, r.title, d.dep_name, r.salary, CONCAT (m.first_name, m.last_name) AS manager FROM employee e LEFT Join role r ON e.role_id = r.id LEFT JOIN department d ON d.id = r.department_id LEFT JOIN employee m ON m.id = e.manager_id", function (err, res) {
+        if (err) throw err;
 
+        console.table(res)
+        userPrompt();
+    })
+}
 
-})
+function viewDepartments() {
 
+    connection.query("SELECT * from department", function (err, res) {
+        if (err) throw err;
+
+        console.table(res);
+        userPrompt();
+    })
+}
+
+function viewRoles() {
+
+    connection.query("SELECT * from role", function (err, res) {
+        if (err) throw err;
+
+        console.table(res);
+        userPrompt();
+    })
 }
 
