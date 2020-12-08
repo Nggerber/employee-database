@@ -1,6 +1,7 @@
 const mysql = require("mysql")
 const inquirer = require("inquirer")
 
+
 var connection = mysql.createConnection({
 host: "localhost",
 
@@ -42,7 +43,7 @@ function userPrompt() {
     }).then(function ({ userChoice }) {
 
         if (userChoice === "View Employees") {
-            
+            viewEmployees();
         }
         else if (userChoice === "View Departments") {
 
@@ -64,5 +65,16 @@ function userPrompt() {
         }
 
     })
+}
+
+function viewEmployees() {
+connection.query("SELECT e.id, e.first_name, r.title, d.dep_name, r.salary, CONCAT (m.first_name, m.last_name) AS manager FROM employee e LEFT Join role r ON e.role_id = r.id LEFT JOIN department d ON d.id = r.department_id LEFT JOIN employee m ON m.id = e.manager_id", function(err, res){
+if (err) throw err;
+
+console.table(res)
+
+
+})
+
 }
 

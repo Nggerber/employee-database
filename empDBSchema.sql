@@ -1,8 +1,8 @@
-DROP DATABASE IF EXISTS employeeDB
+DROP DATABASE IF EXISTS employeeDB;
 
-CREATE database employeeDB
+CREATE database employeeDB;
 
-USE employeeDB
+USE employeeDB;
 
 CREATE TABLE department (
 

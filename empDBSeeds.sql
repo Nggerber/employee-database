@@ -30,25 +30,25 @@ VALUES ("Developer", "80000", 5);
 
 
 INSERT INTO employee (first_name, last_name, role_id, manager_id)
-VALUES ("Bill", "Bob", 1, 1)
+VALUES ("Bill", "Bob", 1, 1);
 
 INSERT INTO employee (first_name, last_name, role_id, manager_id)
-VALUES ("Bob", "Bill", 2, 2)
+VALUES ("Bob", "Bill", 2, 2);
 
 INSERT INTO employee (first_name, last_name, role_id, manager_id)
-VALUES ("Joel", "Bob", 3, 3)
+VALUES ("Joel", "Bob", 3, 3);
 
 INSERT INTO employee (first_name, last_name, role_id, manager_id)
-VALUES ("Bill", "Joel", 4, 1)
+VALUES ("Bill", "Joel", 4, 1);
 
 INSERT INTO employee (first_name, last_name, role_id, manager_id)
-VALUES ("Miss", "Henry", 5, 2)
+VALUES ("Miss", "Henry", 5, 2);
 
 INSERT INTO employee (first_name, last_name, role_id, manager_id)
-VALUES ("Sally", "Bob", 5, 2)
+VALUES ("Sally", "Bob", 5, 2);
 
 INSERT INTO employee (first_name, last_name, role_id, manager_id)
-VALUES ("Eve", "Bob", 5, 2)
+VALUES ("Eve", "Bob", 5, 2);
 
 INSERT INTO employee (first_name, last_name, role_id, manager_id)
-VALUES ("Bill", "Bob", 4, 1)
+VALUES ("Bill", "Bob", 4, 1);
